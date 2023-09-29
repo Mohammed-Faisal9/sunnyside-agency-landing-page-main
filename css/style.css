@@ -1,0 +1,365 @@
+/* custom properties */
+:root {
+    --primary-clr-100: hsl(7, 99%, 70%);
+    --primary-clr-300: hsl(51, 100%, 49%);
+    --primary-clr-500: hsl(167, 40%, 24%);
+    --primary-clr-600: hsl(198, 62%, 26%);
+    --primary-clr-700: hsl(168, 34%, 41%);
+
+    --neutral-clr-100: hsl(0, 0%, 100%);
+    --neutral-clr-300: hsl(210, 4%, 67%);
+    --neutral-clr-500: hsl(232, 10%, 55%);
+    --neutral-clr-700: hsl(213, 9%, 39%);
+    --neutral-clr-900: hsl(212, 27%, 19%);
+
+    --font-size-sm: 1.8rem;
+    --font-size-md: 2.6rem;
+    --font-size-lg: 3.4rem;
+    --font-size-xl: 4.2rem;
+    --font-size-xxl: 5.4rem;
+
+    --primary-font-family: 'Barlow', sans-serif;
+    --secondery-font-family: 'Fraunces', serif;
+
+    --size-100: 1.5rem;
+
+    --container-max-width: 120rem;
+}
+
+/* global rules */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--primary-font-family);
+    font-size: var(--font-size-sm);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+input,
+button {
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--secondery-font-family);
+    overflow-wrap: break-word;
+}
+/* reuseble classes */
+.container {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--size-100);
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-grid {
+    display: grid;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+/* header */
+.header {
+    color: var(--neutral-clr-100);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-block: var(--size-100);
+}
+
+.nav-wrapper {
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: var(--size-100);
+}
+
+.toggle-menu {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .toggle-menu {
+        display: none;
+    }
+}
+
+.navbar {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar.active {
+        display: block;
+        position: absolute;
+        right: 4rem;
+        top: 4rem;
+        background-color: var(--neutral-clr-100);
+        color: var(--neutral-clr-900);
+        padding: 3rem;
+    }
+    .navbar.active::before {
+        content: "";
+        width: 4rem;
+        height: 2rem;
+        border-left: 2rem solid transparent;
+        border-top: 2rem solid #fff;
+        border-right: 2rem solid transparent;
+        border-bottom: 2rem solid transparent;
+        position: absolute;
+        right: -10px;
+        top: -9px;
+        transform: rotate(90deg);
+    }
+
+}
+
+
+.list {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .list {
+        flex-direction: row;
+    }
+}
+
+.active-link {
+    display: block;
+    color: var(--neutral-clr-900);
+    background-color: var(--neutral-clr-100);
+    padding: 1rem 3rem;
+    border-radius: 3rem;
+    transition: 0.3s;
+}
+
+.active-link:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (min-width: 768px) {
+    .active-link {
+        background-color: var(--neutral-clr-100);
+    }
+}
+
+/* hero */
+.hero {
+    color: var(--neutral-clr-100);
+    background-image: url(../images/desktop/image-header.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 80vh;
+    display: grid;
+}
+
+.hero h1 {
+    font-size: var(--font-size-xl);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 15rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: var(--font-size-xxl);
+    }
+}
+
+.hero a {
+    justify-self: center;
+}
+
+/* section */
+.full-width-split-screen {
+    display: grid;
+}
+
+@media (min-width: 768px) {
+    .full-width-split-screen {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.full-width-split-screen img {
+    width: 100%;
+}
+
+.full-width-split-screen .article {
+    padding: 5rem 2rem;
+    text-align: center;
+    grid-row: 2;
+}
+
+@media (min-width: 768px) {
+    .full-width-split-screen .article {
+        text-align: left;
+        grid-row: auto;
+        align-self: center;
+        max-width: 48rem;
+        padding: 2rem;
+        justify-self: center;
+    }
+}
+
+.article-title {
+    font-size: var(--font-size-md);
+}
+
+@media (min-width: 768px) {
+    .article-title {
+        font-size: var(--font-size-xl);
+    }
+}
+
+.info {
+    line-height: 1.5;
+    color: var(--neutral-clr-500);
+    margin-block: 3rem;
+}
+
+.image-article {
+    background-image: url(../images/desktop/image-photography.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.image-article:first-child {
+    background-image: url(../images/desktop/image-graphic-design.jpg);
+}
+
+.image-article .text {
+    max-width: 40rem;
+    padding-bottom: 2rem;
+    padding-top: 35rem;
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    .image-article .text {
+        padding-bottom: 7rem;
+    }
+}
+
+.image-article .text h3 {
+    font-size: var(--font-size-md);
+    margin-bottom: 2rem;
+}
+
+.image-article .text p {
+    color: var(--neutral-clr-700);
+}
+
+/* testimonials */
+.testimonials {
+    padding-block: 8rem;
+}
+
+.testimonials-heading {
+    font-size: var(--font-size-lg);
+    color: var(--neutral-clr-900);
+    margin-bottom: 4rem;
+}
+
+.testimonials-container {
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.testimonials-container .box {
+    min-width: 28rem;
+    flex: 1;
+}
+
+.testimonials-container .box img {
+    border-radius: 50%;
+    margin: 0 auto 4rem;
+}
+
+.testimonials-container .description {
+    margin-bottom: 4rem;
+    color: var(--neutral-clr-700);
+}
+
+.testimonials-container .position {
+    margin-top: 1rem;
+    color: var(--neutral-clr-700);
+}
+
+/* gallery */
+.gallery {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 992px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.footer {
+    background-color: var(--primary-clr-700);
+    padding-block: 5rem;
+    margin: auto;
+}
+
+.footer .logo {
+    margin: auto;
+}
+
+.footer .menu {
+    margin: 2rem 0 4rem;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.footer .icons {
+    justify-content: center;
+    gap: 1.5rem;
+}
